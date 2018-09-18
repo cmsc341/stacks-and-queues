@@ -2,7 +2,7 @@
 #include "Stack.h"
 
 int main() {
-    Queue s(10);
+    Stack s(10);
     s.push(3);
     s.push(4);
     s.push(5);

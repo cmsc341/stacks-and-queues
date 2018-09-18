@@ -2,10 +2,10 @@
 #define STACKS_STACK_H
 
 
-class Queue {
+class Stack {
 public:
-    Queue(int capacity);
-    virtual ~Queue();
+    Stack(int capacity);
+    virtual ~Stack();
     void push(int i);
     int pop();
     int top();
