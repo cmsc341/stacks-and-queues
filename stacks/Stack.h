@@ -11,6 +11,7 @@ public:
     int top();
     bool isEmpty();
 private:
+    int capacity;
     int* array;
     int topIndex;
 };
