@@ -20,7 +20,7 @@ public:
 
 private:
     int size;
-    int capacity;
+    int m_capacity;
     int start;
     int end;
     int *array;

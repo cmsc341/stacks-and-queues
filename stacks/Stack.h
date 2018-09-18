@@ -13,6 +13,7 @@ public:
 private:
     int* array;
     int topIndex;
+    int m_capacity;
 };
 
 
