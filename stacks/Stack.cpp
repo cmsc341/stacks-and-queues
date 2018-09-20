@@ -1,17 +1,23 @@
+#ifndef STACKS_CPP
+#define STACKS_CPP
+
 #include "Stack.h"
 // Emma edict: topIndex points to the last item pushed
-Stack::Stack(int capacity) {
-    array = new int[capacity];
+template <class InnerClass>
+Stack<InnerClass>::Stack(int capacity) {
+    array = new InnerClass[capacity];
     topIndex = -1;
     this->capacity = capacity;
 }
 
-Stack::~Stack() {
+template <class InnerClass>
+Stack<InnerClass>::~Stack() {
     delete [] array;
     array = 0;
 }
 
-void Stack::push(int i) {
+template <class InnerClass>
+void Stack<InnerClass>::push(InnerClass i) {
     if (topIndex + 1 == capacity) {
         throw "can't push to a full stack, brah?";
     }
@@ -19,7 +25,8 @@ void Stack::push(int i) {
     array[topIndex] = i;
 }
 
-int Stack::pop() {
+template <class InnerClass>
+InnerClass Stack<InnerClass>::pop() {
     if (isEmpty()) {
         throw "Or return 0.";
     }
@@ -27,5 +34,5 @@ int Stack::pop() {
     return array[topIndex + 1];
 }
 
-
+#endif
 
