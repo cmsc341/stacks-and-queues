@@ -1,5 +1,5 @@
-#ifndef STACKS_CPP
-#define STACKS_CPP
+#ifndef STACK_CPP
+#define STACK_CPP
 
 #include "Stack.h"
 // Emma edict: topIndex points to the last item pushed
@@ -32,6 +32,11 @@ InnerClass Stack<InnerClass>::pop() {
     }
     topIndex--;
     return array[topIndex + 1];
+}
+
+template<class InnerClass>
+bool Stack<InnerClass>::isEmpty() {
+    return topIndex == -1;
 }
 
 #endif
