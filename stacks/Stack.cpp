@@ -1,19 +1,24 @@
+#ifndef hotdogs
+#define hotdogs
 #include "Stack.h"
 
 // Yamna supreme edict: topIndex points to the most recently pushed item
 
-Stack::Stack(int capacity) {
-    array = new int[capacity];
+template <class InnerClass>
+Stack<InnerClass>::Stack(int capacity) {
+    array = new InnerClass[capacity];
     topIndex = -1;
     m_capacity = capacity;
 }
 
-Stack::~Stack() {
+template <class InnerClass>
+Stack<InnerClass>::~Stack() {
     delete [] array;
     array = 0;
 }
 
-void Stack::push(int i) {
+template <class InnerClass>
+void Stack<InnerClass>::push(InnerClass i) {
     if (isFull()){
         throw "oops";
     }
@@ -21,16 +26,28 @@ void Stack::push(int i) {
     array[topIndex] = i;
 }
 
-int Stack::pop() {
+template <class InnerClass>
+InnerClass Stack<InnerClass>::pop() {
     if (isEmpty()) {
         throw "this is a great badness for my people";
     }
-    int output = array[topIndex];
+    InnerClass output = array[topIndex];
     topIndex--;
 
     return output;
 }
 
+template <class InnerClass>
+bool Stack<InnerClass>::isFull() {
+    return topIndex == m_capacity - 1;
+}
+
+template <class InnerClass>
+bool Stack<InnerClass>::isEmpty() {
+    return topIndex == -1;
+}
+
+#endif
 
 
 

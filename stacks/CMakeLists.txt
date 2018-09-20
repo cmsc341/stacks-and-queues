@@ -5,3 +5,5 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(stacks
     main.cpp Stack.cpp Stack.h)
+
+add_executable(swap swap.cpp)
