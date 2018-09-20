@@ -2,10 +2,10 @@
 #include "Stack.h"
 
 int main() {
-    Stack s(10);
-    s.push(3);
-    s.push(4);
-    s.push(5);
+    Stack<std::string> s(10);
+    s.push("hi");
+    s.push("there");
+    s.push("class");
     std::cout << s.pop()  << std::endl;
     std::cout << s.pop()  << std::endl;
     std::cout << s.pop()  << std::endl;

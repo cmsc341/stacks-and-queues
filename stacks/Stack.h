@@ -1,20 +1,24 @@
 #ifndef STACKS_STACK_H
 #define STACKS_STACK_H
 
-
+template <class InnerClass>
 class Stack {
 public:
     Stack(int capacity);
-    virtual ~Stack();
-    void push(int i);
-    int pop();
-    int top();
+    ~Stack();
+    void push(InnerClass i);
+    InnerClass pop();
+    InnerClass top();
     bool isEmpty();
 private:
     int capacity;
-    int* array;
+    InnerClass* array;
     int topIndex;
 };
+
+#include "Stack.cpp"
+
+
 
 
 #endif //STACKS_STACK_H

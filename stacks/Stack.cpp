@@ -1,17 +1,23 @@
+#ifndef STACK_CPP
+#define STACK_CPP
+
 #include "Stack.h"
 // Tiffany mandate: topindex is where we put the next one
-Stack::Stack(int capacity) {
+template <class InnerClass>
+Stack<InnerClass>::Stack(int capacity) {
     this->capacity = capacity;
-    array = new int[capacity];
+    array = new InnerClass[capacity];
     topIndex = 0;
 }
 
-Stack::~Stack() {
+template <class InnerClass>
+Stack<InnerClass>::~Stack() {
     delete [] array;
     array = 0;
 }
 
-void Stack::push(int i) {
+template <class InnerClass>
+void Stack<InnerClass>::push(InnerClass i) {
     if (topIndex == capacity) {
         throw "students are overflowing with mad : (";
     }
@@ -19,13 +25,15 @@ void Stack::push(int i) {
     topIndex++;
 }
 
-int Stack::pop() {
+template <class InnerClass>
+InnerClass Stack<InnerClass>::pop() {
     if (topIndex == 0) {
         throw "For when there's nothing the stack -- desmond";
     }
-    int output = array[topIndex - 1];
+    InnerClass output = array[topIndex - 1];
     topIndex--;
     return output;
 }
 
+#endif
 
