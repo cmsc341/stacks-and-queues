@@ -1,29 +1,33 @@
 //
 // Created by Ben Johnson on 9/16/18.
 //
-
+#ifndef QCPP
+#define QCPP
 #include "Queue.h"
 #include <iostream>
 
 using namespace std;
 
-Queue::Queue() {
+template<class T>
+Queue<T>::Queue() {
     // what does an empty queue look like?
     front = nullptr;
     back = nullptr;
 }
 
-Queue::~Queue() {
-    Node * node = front;
+template<class T>
+Queue<T>::~Queue() {
+    Node<T> * node = front;
     while (node != nullptr) {
-        Node *next = node->next;
+        Node<T> *next = node->next;
         delete node;
         node = next;
     }
 }
 
-void Queue::enqueue(int data) {
-    Node * node = new Node(data);
+template<class T>
+void Queue<T>::enqueue(T data) {
+    Node<T> * node = new Node<T>(data);
     if (back != nullptr) {
         back->next = node;
     } else {
@@ -32,12 +36,13 @@ void Queue::enqueue(int data) {
     back = node;
 }
 
-int Queue::dequeue() {
+template<class T>
+int Queue<T>::dequeue() {
     if (front == nullptr) {
         throw range_error("Dis were empty");
     }
-    int output = front->data;
-    Node * temp = front->next;
+    T output = front->data;
+    Node<T> * temp = front->next;
     delete front;
     front = temp;
     if (front == nullptr) {
@@ -46,7 +51,9 @@ int Queue::dequeue() {
     return output;
 }
 
-Node::Node(int data) {
+template<class T>
+Node<T>::Node(T data) {
     this->data = data;
     this->next = nullptr;
 }
+#endif

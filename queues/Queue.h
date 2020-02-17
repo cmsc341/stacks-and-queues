@@ -4,28 +4,31 @@
 
 #ifndef STACKS_QUEUE_H
 #define STACKS_QUEUE_H
+template<class T>
 class Queue;
+template<class T>
 class Node {
-    Node(int data);
+    Node(T data);
 
     Node * next;
-    int data;
-    friend Queue;
+    T data;
+    friend Queue<T>;
 };
+template<class T>
 class Queue {
 public:
     Queue();
 
     ~Queue();
 
-    void enqueue(int data);
+    void enqueue(T data);
     int dequeue();
 
 private:
-    Node * front;
-    Node * back;
+    Node<T> * front;
+    Node<T> * back;
 
 };
-
+#include "Queue.cpp"
 
 #endif //STACKS_QUEUE_H

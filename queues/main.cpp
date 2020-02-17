@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    Queue q;
+    Queue<int> q;
     q.enqueue(2);
     q.enqueue(4);
     q.enqueue(2);
