@@ -4,26 +4,26 @@
 
 #ifndef STACKS_QUEUE_H
 #define STACKS_QUEUE_H
+class Queue;
+class Node {
+    Node(int data);
 
-
+    Node * next;
+    int data;
+    friend Queue;
+};
 class Queue {
 public:
-    Queue(int capacity);
+    Queue();
 
     ~Queue();
 
     void enqueue(int data);
     int dequeue();
-    bool isEmpty();
-    bool isFull();
-    void clear();
 
 private:
-    int size;
-    int capacity;
-    int start;
-    int end;
-    int *array;
+    Node * front;
+    Node * back;
 
 };
 
