@@ -5,32 +5,33 @@
 #ifndef STACKS_QUEUE_H
 #define STACKS_QUEUE_H
 
+template<class T>
 class Node {
 public:
-    Node(int i);
+    Node(T i);
 
-    ~Node();
 
     Node * next;
-    int data;
+    T data;
 };
 
+
+template<class T>
 class Queue {
 public:
     Queue();
 
     ~Queue();
 
-    void enqueue(int data);
-    int dequeue();
-    bool isEmpty();
-    bool isFull();
-    void clear();
+    void enqueue(T data);
+    T dequeue();
 
 private:
-    Node *head, *tail;
+    Node<T> *head, *tail;
 
 };
 
+
+#include "Queue.cpp""
 
 #endif //STACKS_QUEUE_H
