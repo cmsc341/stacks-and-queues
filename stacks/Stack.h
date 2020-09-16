@@ -5,7 +5,7 @@
 class Stack {
 public:
     Stack(int capacity);
-    virtual ~Stack();
+    ~Stack();
     void push(int i);
     int pop();
     int top();
@@ -13,6 +13,7 @@ public:
 private:
     int* array;
     int topIndex;
+    int capacity;
 };
 
 
