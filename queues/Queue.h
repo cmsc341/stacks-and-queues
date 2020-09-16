@@ -5,10 +5,20 @@
 #ifndef STACKS_QUEUE_H
 #define STACKS_QUEUE_H
 
+class Queue;
+
+class Node {
+private:
+  Node(int data);
+
+  Node * next;
+  int data;
+  friend Queue;
+};
 
 class Queue {
 public:
-    Queue(int capacity);
+    Queue();
 
     ~Queue();
 
@@ -19,11 +29,7 @@ public:
     void clear();
 
 private:
-    int size;
-    int capacity;
-    int start;
-    int end;
-    int *array;
+  Node * head, * tail;
 
 };
 
