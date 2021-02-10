@@ -7,18 +7,21 @@
 
 Queue::Queue(int capacity) {
     array = new int[capacity];
+    this->capacity = capacity;
     start = 0;
     end = 0;
     size = 0;
 }
 
 Queue::~Queue() {
-
+    delete [] array;
 }
 
 int Queue::dequeue() {
-    // we have to shift the array back to fill empty space
-    return 0;
+    int toReturn = array[start];
+    start++;
+    size--;
+    return toReturn;
 }
 
 void Queue::enqueue(int data) {
